@@ -36,6 +36,7 @@ App.post("/salvar", (req, res) => {
 
     database.insert(dados).into('pesquisas').then(() => {
         console.log("Dados adicionados com sucesso")
+        res.redirect("/")
     }).catch(err => {
         console.log(err)
     })
