@@ -1,3 +1,6 @@
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+require('dotenv').config({ path: envFile });
+
 const express = require("express");
 const App = express();
 const ejs = require("ejs");
@@ -126,6 +129,7 @@ App.post("/salvar", (req, res) => {
         });
 });
 
-App.listen(8080, () => {
-    console.log("conexão feita com sucesso")
-})
+const PORT = process.env.PORT || 8080;
+App.listen(PORT, () => {
+    console.log("Servidor está rodando");
+});
