@@ -15,6 +15,7 @@
     <div class="text-center mb-4">
       <h2 class="mb-3">Ficha da Pesquisa</h2>
       <a href="/" class="btn btn-dark btn-sm">Fazer novas pesquisas</a>
+      <a href="/download-excel" class="btn btn-dark btn-sm">Download planilha</a>
     </div>
     <hr class="mb-4"> 
 
@@ -25,19 +26,19 @@
           <div class="row">
             <div class="col-md-6">
               <p><strong>Nome:</strong> <%= p.nome %></p>
-              <p><strong>Empresa:</strong> <%= p.nome_empresa %></p>
+              <p><strong>Empresa:</strong> <%= p.nome_empresa || "Não Informado" %></p>
               <p><strong>Idade:</strong> <%= p.idade %> anos</p>
               <p><strong>Telefone:</strong> <%= p.telefone %></p>
               <p><strong>Endereço:</strong> <%= p.endereco %></p>
-              <% if (p.cnpj) { %>
+              <% if (p.numero_cnpj && p.numero_cnpj !== "Não informou CNPJ") { %>
                 <p><strong>CNPJ:</strong> <%= p.numero_cnpj %></p>
               <% } %>
             </div>
 
             <div class="col-md-6">
               <p><strong>Tem funcionário:</strong> <%= p.funcionario ? "Sim" : "Não" %></p>
-              <p><strong>Parceiros:</strong> <%= p.parceiros %></p>
-              <p><strong>Compras:</strong> R$ <%= p.compras.toLocaleString('pt-BR') %></p>
+              <p><strong>Parceiros:</strong> <%= p.parceiros || "Não Informado" %></p>
+              <p><strong>Compras:</strong> R$ <%= p.compras.toFixed(2).replace(".", ",") %></p> <!-- Ajustando a exibição de valores float -->
               <% if (p.contador) { %>
                 <p><strong>Possui contador:</strong> Sim</p>
               <% } %>
