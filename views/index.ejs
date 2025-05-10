@@ -15,6 +15,13 @@
     crossorigin="anonymous"
   />
   <script src="https://unpkg.com/imask"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('sucesso') === 'true') {
+      alert('Pesquisa foi adicionada com sucesso!');
+    }
+  </script>
+  
 </head>
 <body>
   <div class="container mt-5">

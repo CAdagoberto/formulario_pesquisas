@@ -120,7 +120,8 @@ App.post("/salvar", (req, res) => {
 
     database.insert(dados).into('pesquisas')
         .then(() => {
-            res.redirect("/");
+            alert("Pesquisa foi adicionada com sucesso!")
+            res.redirect("/?sucesso=true");
         })
         .catch(err => {
             console.error("Erro ao inserir no banco:", err);
