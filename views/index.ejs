@@ -14,14 +14,7 @@
     rel="stylesheet"
     crossorigin="anonymous"
   />
-  <script src="https://unpkg.com/imask"></script>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('sucesso') === 'true') {
-      alert('Pesquisa foi adicionada com sucesso!');
-    }
-  </script>
-  
+  <script src="https://unpkg.com/imask"></script>  
 </head>
 <body>
   <div class="container mt-5">
@@ -122,5 +115,11 @@
     document.getElementById('cnpjSim').addEventListener('change', () => campoCnpj.style.display = 'block');
     document.getElementById('cnpjNao').addEventListener('change', () => campoCnpj.style.display = 'none');
   </script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('sucesso') === 'true') {
+        alert('Pesquisa foi adicionada com sucesso!');
+      }
+    </script>
 </body>
 </html>
